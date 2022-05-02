@@ -11,15 +11,18 @@ const CollectionDetails = () => {
     return (
 
         <>
-            <Navbar setisWalletconnected={setisWalletconnected} isWalletConnect={isWalletConnect} />
-            <div className="w-full lg:w-[80%]  m-auto  flex justify-between items-center">
-                <div className="flex items-center">
-
-                    <div className="mx-4 font-bold">
-                        <h2>KID</h2>
-                        <p>ORG KID</p>
-                    </div>
+            <Navbar setisWalletconnected={setisWalletconnected} isWalletConnect={true} />
+            <div className="w-full lg:w-[80%]  m-auto  flex justify-between items-center px-4">
+                <div className="flex "><div className="w-24 h-24 rounded-full bg-purple-700 flex justify-center items-center ">
+                    <h1 className="text-white"> KD</h1>
                 </div>
+                    <div className="flex items-center">
+                        <div className="mx-4 font-bold">
+                            <h2>KID</h2>
+                            <p>ORG KID</p>
+                        </div>
+                    </div></div>
+
                 <div>
                     <button className="bg-purple-500 p-3 text-white" onClick={() => setShowModal(!showModal)}>MINT NFT</button>
                 </div>
