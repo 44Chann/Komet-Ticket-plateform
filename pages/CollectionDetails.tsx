@@ -12,7 +12,7 @@ const CollectionDetails = () => {
 
         <>
             <Navbar setisWalletconnected={setisWalletconnected} isWalletConnect={isWalletConnect} />
-            <div className="w-full border border-black  flex justify-between items-center">
+            <div className="w-full lg:w-[80%]  flex justify-between items-center">
                 <div className="flex items-center">
 
                     <div className="mx-4 font-bold">
