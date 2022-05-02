@@ -11,7 +11,8 @@ const CollectionDetails = () => {
     return (
 
         <>
-            <div>
+            <div className="w-full h-full lg:w-[80%] m-auto">
+
                 <Navbar setisWalletconnected={setisWalletconnected} isWalletConnect={true} />
                 <div className="w-full   m-auto  flex justify-between items-center px-4">
                     <div className="flex "><div className="w-24 h-24 rounded-full bg-purple-700 flex justify-center items-center ">
