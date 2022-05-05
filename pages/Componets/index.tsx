@@ -4,3 +4,9 @@ export { default as Navbar } from './Navbar'
 export { default as AstroImg } from './Astronot'
 export { default as CollectionCard } from './CollectionCard'
 export { default as DetailsBadge } from './DetailsBadge'
+
+export default function Dumb() {
+  return <>
+
+  </>
+}
