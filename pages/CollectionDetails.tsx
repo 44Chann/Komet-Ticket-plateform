@@ -1,40 +1,29 @@
-import { useState } from "react";
-import NFTcard from "./componets/NFTCard";
-import MintNFTForm from "./componets/MintNFT";
-import Navbar from "./componets/Navbar.";
+import { Btn, CollectionCard, DetailsBadge } from "./Componets";
 
 const CollectionDetails = () => {
-    const [showNFT, setShowNFT] = useState(false)
-    const [showModal, setShowModal] = useState(false)
-    const [isWalletConnect, setisWalletconnected] = useState(false)
-
     return (
-
         <>
-            <div className="w-full h-full lg:w-[80%] m-auto">
-
-                <Navbar setisWalletconnected={setisWalletconnected} isWalletConnect={true} />
-                <div className="w-full   m-auto  flex justify-between items-center px-4">
-                    <div className="flex "><div className="w-24 h-24 rounded-full bg-purple-700 flex justify-center items-center ">
-                        <h1 className="text-white"> KD</h1>
-                    </div>
-                        <div className="flex items-center">
-                            <div className="mx-4 font-bold">
-                                <h2>KID</h2>
-                                <p>ORG KID</p>
-                            </div>
-                        </div></div>
-
-                    <div>
-                        <button className="bg-purple-500 p-3 text-white" onClick={() => setShowModal(!showModal)}>MINT NFT</button>
-                    </div>
-                </div>
+            <div className=" flex w-full  flex-col lg:flex-row items-center min-h-[80vh] py-9">
                 <div>
-                    <MintNFTForm showModal={showModal} setShowModal={setShowModal} setShowNFT={setShowNFT} />
+                    <CollectionCard />
+                </div>
+                <div className=" w-full lg:sw-[80%]   min-h-[400px] mb-5 lg:p-5 p-3 my-6">
+                    <div className="flex justify-between">
+                        <h1>Collection Name</h1>
+                        <Btn text="share" />
+                    </div>
 
-                    {
-                        showNFT ? <NFTcard /> : null
-                    }
+                    <div className="py-5 border-b border-purple-400">
+                        <p>Created By : Name</p>
+                    </div>
+                    <div className="py-3">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa architecto quas neque consequuntur! Odit impedit optio unde ab eaque possimus doloribus necessitatibus, cumque, eveniet magnam totam quibusdam laboriosam? Saepe explicabo in minus ex! Aspernatur mollitia reiciendis, porro at aut a amet hic illum dolorum eos sequi harum, placeat exercitationem quod.</p>
+                    </div>
+                    <div className="flex flex-col lg:flex-row mt-9 ">
+                        <DetailsBadge title="price" value="69" />
+                        <DetailsBadge title="tickets" value="100 INR" />
+                        <DetailsBadge title="Adress" value="213997998X0ff" />
+                    </div>
                 </div>
             </div>
         </>
