@@ -15,7 +15,6 @@ export default function Home() {
             <div className="my-8">
               <Link href="/CreateCollection">
                 <a href="">
-
                   <Btn text="Event" />
                 </a>
               </Link>
@@ -25,7 +24,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="m-40">
+        <div className="m-40 hidden lg:block">
           <AstroImg />
         </div>
       </div>

@@ -5,8 +5,8 @@ import { Btn, AstroImg } from "./Componets"
 export default function CreateNFT() {
     return (
         <>
-            <div className="flex py-24 items-center justify-between w-full  h-full">
-                <div className="w-[50%]  flex flex-col items-center ">
+            <div className="flex py-24 items-center justify-between w-full  h-full lg:flex-row flex-col">
+                <div className="lg:w-[50%]  flex flex-col items-center  ">
                     <h1 className="text-3xl my-8 ">Add NFT To Collection </h1>
                     <div className="flex flex-col items-start ">
                         <div className="mb-8">
@@ -15,13 +15,13 @@ export default function CreateNFT() {
                         <div>
                             <Btn text="Collection Symbol" />
                         </div>
-                        <div className="my-10">
+                        <div className="my-10 hidden lg:block">
                             <AstroImg />
                         </div>
                     </div>
 
                 </div>
-                <div className="w-[50%]  py-8">
+                <div className="lg:w-[50%]  py-8">
                     <form className="  ">
                         <input
                             id="Artist Name"

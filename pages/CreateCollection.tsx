@@ -7,7 +7,7 @@ export default function CreateCollection() {
         <>
             <div className="flex py-24 items-center justify-center">
                 <div>
-                    <h1 className="text-3xl ">Create new Collection ? </h1>
+                    <h1 className="text-2xl lg:text-3xl ">Create new Collection ? </h1>
                     <div className="flex flex-col items-start ">
                         <div className="">
                             <form>
@@ -22,7 +22,7 @@ export default function CreateCollection() {
                         </div>
                     </div>
                 </div>
-                <div className="m-40">
+                <div className="m-40 hidden lg:block">
                     <AstroImg />
                 </div>
             </div>
