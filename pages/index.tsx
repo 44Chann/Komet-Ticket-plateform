@@ -1,11 +1,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import { Btn, AstroImg } from "./Componets"
-
-
 export default function Home() {
-
-  const [isWalletConnect, setisWalletconnected] = useState(false)
   return (
     <>
       <div className="flex py-24 items-center justify-center">
@@ -15,12 +11,12 @@ export default function Home() {
             <div className="my-8">
               <Link href="/CreateCollection">
                 <a href="">
-                  <Btn text="Event" />
+                  <Btn text="Event" onclick={() => console.log("hi")} />
                 </a>
               </Link>
             </div>
             <div>
-              <Btn text="NFTs" />
+              <Btn text="NFTs" onclick={() => console.log("hi")} />
             </div>
           </div>
         </div>
