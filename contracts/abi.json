@@ -1,0 +1,103 @@
+[
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "nftAddress",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "_organiserId",
+                "type": "uint256"
+            }
+        ],
+        "name": "CollectionCreated",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "_name",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_symbol",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_baseURI",
+                "type": "string"
+            },
+            {
+                "internalType": "uint256",
+                "name": "mintPrice",
+                "type": "uint256"
+            }
+        ],
+        "name": "deployNftCollection",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_orgniser",
+                "type": "address"
+            }
+        ],
+        "name": "getOrganiserCollections",
+        "outputs": [
+            {
+                "internalType": "address[]",
+                "name": "",
+                "type": "address[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "organiser",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "organiserId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "organiserAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "bool",
+                "name": "isOrganiser",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]

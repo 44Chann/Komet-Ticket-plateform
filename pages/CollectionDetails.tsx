@@ -5,7 +5,7 @@ import Router from 'next/router'
 const CollectionDetails = () => {
     const { authRedirect, isConnected } = useAppContext()
     useEffect(() => {
-        authRedirect()
+        // authRedirect()
     }, [])
 
 
@@ -14,14 +14,13 @@ const CollectionDetails = () => {
             isConnected ? (
                 <div className=" flex w-full  flex-col lg:flex-row items-center min-h-[80vh] py-9">
                     <div>
-                        <CollectionCard />
+                        {/* <CollectionCard /> */}
                     </div>
                     <div className=" w-full lg:sw-[80%]   min-h-[400px] mb-5 lg:p-5 p-3 my-6">
                         <div className="flex justify-between">
                             <h1>Collection Name</h1>
                             <Btn text="share" onclick={() => { }} />
                         </div>
-
                         <div className="py-5 border-b border-purple-400">
                             <p>Created By : Name</p>
                         </div>

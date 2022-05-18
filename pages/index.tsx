@@ -1,28 +1,40 @@
 import Link from "next/link"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Btn, AstroImg } from "./Componets"
+import axios from "axios"
+import { useAppContext } from "./_context"
+import Collections from "./Collections"
 export default function Home() {
+
+  const [collections, setCollections] = useState()
+
+  const { baseurl } = useAppContext()
+
+  const fetchCollection = async () => {
+    const res = await axios.get(baseurl + "api/v1/market/v1/collections?pageNo=0&pageSize=29",)
+    setCollections(res.data)
+    console.log(res.data)
+  }
+
+  useEffect(() => {
+    fetchCollection()
+  }, [])
+
   return (
     <>
-      <div className="flex py-24 items-center justify-center">
-        <div>
-          <h1 className="text-3xl ">What kind of Collection you want to create ? </h1>
-          <div className="flex flex-col items-start my-9 ">
-            <div className="my-8">
-              <Link href="/CreateCollection">
-                <a href="">
-                  <Btn text="Event" onclick={() => console.log("hi")} />
-                </a>
-              </Link>
-            </div>
+      <div className="flex py-24 items-center justify-center min-h-[80vh]">
+        {
+          collections ?
             <div>
-              <Btn text="NFTs" onclick={() => console.log("hi")} />
+              <Collections collections={collections} />
             </div>
-          </div>
-        </div>
-        <div className="m-40 hidden lg:block">
-          <AstroImg />
-        </div>
+            : <h1 className="text-3xl">ohhhh! you dont have any collection yet create a collection here  <Link href="/CreateCollection" >
+              <a className="underline text-purple-400 " href="">
+                here
+              </a>
+            </Link></h1>
+        }
+
       </div>
     </>
   )

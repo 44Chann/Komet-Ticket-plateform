@@ -6,10 +6,15 @@
     "start": "next start"
   },
   "dependencies": {
-    "ethers": "^5.6.5",
+    "@types/axios": "^0.14.0",
+    "@types/uuid": "^8.3.4",
+    "axios": "^0.27.2",
+    "ethers": "^5.6.6",
+    "form-data": "^4.0.0",
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "uuid": "^8.3.2",
     "wagmi": "^0.2.10"
   },
   "devDependencies": {
