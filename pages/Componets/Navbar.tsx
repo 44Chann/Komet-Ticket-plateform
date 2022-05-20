@@ -73,8 +73,8 @@ const Navbar = () => {
                     <Logo />
                 </div>
                 <div className="lg:flex hidden items-center ">
-                    {isConnected ? <Link href="/Collections" >
-                        <a className="mx-5" href="">View All Collection</a>
+                    {isConnected ? <Link href="/CreateCollectionForm" >
+                        <a className="mx-5" href="">Create Event</a>
                     </Link> : null}
                     {isConnected ? <Btn text={shortAccount ? shortAccount : "hey"} onclick={() => { }} /> : <Btn text="connect wallet" onclick={connectWallet} />}
                 </div>

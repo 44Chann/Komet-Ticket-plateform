@@ -9,11 +9,11 @@ export default function Modal() {
     useEffect(() => {
         if (collectionAdress) {
             setstep(step + 1)
-            setText("creating collection")
+            setText("Adding tickets to collection")
         }
         if (collectionID) {
             setstep(step + 1)
-            setText("creating NFT")
+            setText("Done")
         }
     }, [collectionAdress, collectionID, createStatus])
 
@@ -37,12 +37,12 @@ export default function Modal() {
                                 <div className="relative p-6 flex-auto">
                                     <div className="w-full flex-col flex justify-center items-center my-10">
                                         <div className="flex items-center">
-                                            <div className={"w-8 h-8 rounded-full flex items-center justify-center" + (step >= 2 ? "bg-purple-700" : "bg-purple-500")} >
+                                            <div className={"w-8 h-8 rounded-full flex items-center justify-center " + (step == 1 ? "bg-purple-700" : "bg-purple-500")} >
                                                 {1}
                                             </div>
                                             <div className={"w-60 h-1  " + (step >= 2 ? "bg-purple-700" : "bg-white")}>
                                             </div>
-                                            <div className={"w-8 h-8 rounded-full flex items-center justify-center " + (step >= 3 ? "bg-purple-700" : "bg-purple-500")}>
+                                            <div className={"w-8 h-8 rounded-full flex items-center justify-center " + (step >= 2 ? "bg-purple-700" : "bg-purple-500")}>
                                                 {2}
                                             </div>
                                             <div className={"w-60 h-1  " + (step >= 3 ? "bg-purple-700" : "bg-white")}>
@@ -51,8 +51,13 @@ export default function Modal() {
                                                 {3}
                                             </div>
                                         </div>
-                                        <div className="h-full flex items-center my-10 py-20">
+                                        <div className="h-full flex-col  items-center my-10 py-20">
                                             <p>{text}</p>
+                                            {step >= 3 ? <div>
+                                                <p>collection Details  </p>
+                                                <p> Contract Adress : {collectionAdress} </p>
+                                                <p>Collection ID : {collectionID}</p>
+                                            </div> : null}
                                         </div>
 
                                     </div>
