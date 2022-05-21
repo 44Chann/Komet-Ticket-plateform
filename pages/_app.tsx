@@ -4,6 +4,9 @@ import { Navbar } from './Componets'
 import { useState } from 'react'
 import { AppContext } from './_context'
 import Router from 'next/router'
+
+import toast, { Toaster } from 'react-hot-toast'
+
 function MyApp({ Component, pageProps }: AppProps) {
   const [isConnected, setIsConnected] = useState(false)
   const [currentAccount, setCurrentAccount] = useState<String>("")
@@ -19,6 +22,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [showModal, setShowModal] = useState(false);
   const [createStatus, setCreateStatus] = useState()
   const baseurl = "http://staging.komet.me/";
+
+
+
 
 
   const authRedirect = () => {
@@ -51,8 +57,33 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        gutter={8}
+        containerClassName=""
+        containerStyle={{}}
+        toastOptions={{
+          // Define default options
+          className: '',
+          duration: 5000,
+          style: {
+            background: '#363636',
+            color: '#fff',
+          },
+          // Default options for specific types
+          success: {
+            duration: 3000,
+            theme: {
+              primary: 'green',
+              secondary: 'black',
+            },
+          },
+        }}
+      />
+
       <AppContext.Provider value={shared_state} >
-        <div className="w-full min-h-screen  m-auto bg-primary text-white p-8 overflow-hidden">
+        <div className="w-full  m-auto bg-primary text-white text-opacity-90 p-8 min-h-screen overflow-hidden">
           <div className='w-full lg:w-[80%] m-auto'>
             <Navbar />
             <Component {...pageProps} />

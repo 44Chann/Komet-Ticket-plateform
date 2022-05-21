@@ -9,7 +9,7 @@ interface Props {
 const CollectionCard = ({ collectionId, collectionImage, collectionName, organiserName, collectionPrice }: Props) => {
     return (
         <>
-            <div className="border border-purple-600 px-3 py-2 w-[250px] m-auto lg:m-0 lg:mr-5 lg:mb-6 ">
+            <div className="bg-[#272727] px-3 py-2 w-[250px] m-auto lg:m-0 lg:mr-5 lg:mb-6 ">
                 <div className="min-h-[300px] ">
                     <img src={collectionImage} alt="nft img" className="object-cover" />
                 </div>

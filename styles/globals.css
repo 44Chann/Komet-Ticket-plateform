@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+label {
+  font-size: 1.2rem;
+}
+
+label::after {
+  content: '*';
+  color: rgb(248, 62, 62);
+  margin-left: 2px;
+}
