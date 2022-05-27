@@ -28,8 +28,8 @@ const CollectionDetails = () => {
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa architecto quas neque consequuntur! Odit impedit optio unde ab eaque possimus doloribus necessitatibus, cumque, eveniet magnam totam quibusdam laboriosam? Saepe explicabo in minus ex! Aspernatur mollitia reiciendis, porro at aut a amet hic illum dolorum eos sequi harum, placeat exercitationem quod.</p>
                         </div>
                         <div className="flex flex-col lg:flex-row mt-9 ">
-                            <DetailsBadge title="price" value="69" />
-                            <DetailsBadge title="tickets" value="100 INR" />
+                            <DetailsBadge title="price" value="0.0003 Matic" />
+                            <DetailsBadge title="tickets" value="100" />
                             <DetailsBadge title="Adress" value="213997998X0ff" />
                         </div>
                     </div>

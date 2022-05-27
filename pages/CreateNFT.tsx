@@ -49,7 +49,7 @@ export default function CreateNFT() {
                     signer
                 )
                 let newCollectionTxn = await newCollectionContract.deployNftCollection(
-                    name,
+                    collectionName,
                     collectionSymbol,
                     'BaseURI',
                     ethers.utils.parseEther(`${collectionPrice}`)
