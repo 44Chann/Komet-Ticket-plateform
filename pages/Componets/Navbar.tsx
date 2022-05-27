@@ -7,6 +7,7 @@ import { toast } from "react-hot-toast"
 
 declare var window: any
 const Navbar = () => {
+    const [err, setErr] = useState<any>(null)
 
     const { isConnected, setIsConnected, currentAccount, setCurrentAccount, orgnizerid,
         setorgnizerID, baseurl } = useAppContext()
@@ -35,10 +36,6 @@ const Navbar = () => {
             console.log(e);
         }
     };
-
-
-
-
 
 
     const login = async () => {
@@ -101,10 +98,16 @@ const Navbar = () => {
 
     useEffect(() => {
         checkWalletIsConnected()
-        let { ethereum }: any = window
-        ethereum.on('chainChanged', (chainId: string) => {
-            changeNetwork(chainId)
-        })
+        try {
+            let { ethereum }: any = window
+            ethereum.on('chainChanged', (chainId: string) => {
+                changeNetwork(chainId)
+            })
+        } catch (err) {
+            setErr(err)
+            toast.error('You dont have metamask install Metamask')
+        }
+
     }, [])
 
 
