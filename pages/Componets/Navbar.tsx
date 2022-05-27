@@ -55,7 +55,8 @@ const Navbar = () => {
                     console.log("Not Found");
                 }
             } else {
-                console.log("Install Metamask");
+                toast.error('You dont have metamask install Metamask')
+
             }
         } catch (e) {
             console.log(e);
