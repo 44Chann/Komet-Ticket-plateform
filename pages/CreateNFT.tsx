@@ -179,7 +179,7 @@ export default function CreateNFT() {
                             <div>
                                 <label htmlFor="name">Name</label>
                                 <p className="text-[10px] text-gray-300">name will be on each ticket  </p>
-                                <Input id="name" name="name" type="text" value={name} setValue={setName} placeholder={"@jhon"} />
+                                <Input id="name" name="name" type="text" value={name} setValue={setName} placeholder={"Prime pass"} />
                             </div>
 
                             <div className="my-8">
