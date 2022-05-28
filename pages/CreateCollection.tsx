@@ -6,7 +6,9 @@ export default function CreateCollection() {
     const { isConnected, collectionName, setCollectionName, collectionPrice, setCollectionPrice,
         collectionSymbol, setCollectionSymbol,
         orgnizerName, setOrgnizerName, step, setStep } = useAppContext()
-    const [loading, setLoading] = useState(false)
+    const [text, setText] = useState('submit')
+    const [disabled, setDisabled] = useState(false)
+
     return (
         <>
             <div className="w-full flex-col flex justify-center lg:w-[80vh] min-h-[90vh]">
@@ -15,6 +17,8 @@ export default function CreateCollection() {
                     <div className="my-8">
                         <form action="" onSubmit={(e) => {
                             e.preventDefault()
+                            setText("please wait..")
+                            setDisabled(true)
                             Router.push("/CreateNFT")
                         }}>
                             <div>
@@ -40,7 +44,7 @@ export default function CreateCollection() {
                                     <p className="px-4 bg-purple-800 py-3">matic</p>
                                 </div>
                             </div>
-                            <input type="submit" className="bg-purple-600 py-2 px-4 my-4 rounded-full cursor-pointer" />
+                            <input type="submit" className="bg-purple-600 py-2 px-4 my-4 rounded-full cursor-pointer" disabled={disabled ? disabled : false} value={text} />
                         </form>
                     </div>
                 </div>

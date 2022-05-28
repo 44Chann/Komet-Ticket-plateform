@@ -8,14 +8,11 @@ import { toast } from "react-hot-toast"
 declare var window: any
 const Navbar = () => {
     const [err, setErr] = useState<any>(null)
-
-    const { isConnected, setIsConnected, currentAccount, setCurrentAccount, orgnizerid,
+    const { isConnected, setIsConnected, orgnizerid,
         setorgnizerID, baseurl } = useAppContext()
     const [shortAccount, setShortAcount] = useState("")
     const [account, setAccount] = useState()
-
     const requrl = baseurl + "api/v1/market/v1/organiser/login"
-
     const checkWalletIsConnected = async () => {
         try {
             const { ethereum } = window;
@@ -63,13 +60,9 @@ const Navbar = () => {
         }
     };
 
-
-
-
     const changeNetwork = async (chainId: string) => {
         try {
             const { ethereum } = window;
-
             if (ethereum) {
                 if (chainId !== '0x13881') {
                     toast.error('Connect to Polygon Mumbai Testnet')
@@ -86,17 +79,15 @@ const Navbar = () => {
         }
     };
 
-
     const createOrgnizer = async () => {
         const res = await axios.post(requrl,
             {
-                "publicAddress": currentAccount
+                "publicAddress": account
             }
         )
         const data = res.data.organiserId;
         setorgnizerID(data)
     }
-
     useEffect(() => {
         checkWalletIsConnected()
         try {
@@ -108,17 +99,18 @@ const Navbar = () => {
             setErr(err)
             toast.error('You dont have metamask install Metamask')
         }
-
     }, [])
 
 
     useEffect(() => {
         let acc = String(account)
-        acc = acc.slice(0, 5)
+        acc = acc.slice(0, 7)
         setShortAcount(acc)
         if (account) {
             createOrgnizer()
+            console.log("orgs")
         }
+
     }, [account])
 
 

@@ -21,10 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [step, setStep] = useState(1)
   const [showModal, setShowModal] = useState(false);
   const [createStatus, setCreateStatus] = useState()
-  const baseurl = "http://staging.komet.me/";
-
-
-
+  const baseurl = "https://staging.komet.me/";
 
 
   const authRedirect = () => {

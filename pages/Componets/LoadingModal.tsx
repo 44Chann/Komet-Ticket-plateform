@@ -70,7 +70,7 @@ export default function Modal() {
                                         type="button"
                                         onClick={() => {
                                             setShowModal(false)
-                                            Router.push("collectionDetails")
+                                            Router.push("collectios")
                                         }}
                                     >
                                         view Collection

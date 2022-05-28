@@ -1,13 +1,12 @@
-import Link from 'next/link'
 import FormData from 'form-data'
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react'
 import { useAppContext } from './_context'
-import axios from "axios"
+import axios from 'axios'
 import { ethers } from 'ethers'
 import contractABI from '../contracts/abi.json'
 import Modal from './Componets/LoadingModal'
 import Input from './Componets/Forms/Input'
-const contractAddress = '0x89171564Be0DbDd66Eee73f9F452529213167BA2'
+const contractAddress = '0x1b00CDFc161D9041ff6319450755b94DCBDB9E8d'
 
 declare var window: any
 export default function CreateNFT() {
@@ -25,11 +24,13 @@ export default function CreateNFT() {
         orgnizerName,
         collectionID,
         setCollectionID,
-        step, setStep,
-        showModal, setShowModal,
-        createStatus, setCreateStatus
+        step,
+        setStep,
+        showModal,
+        setShowModal,
+        createStatus,
+        setCreateStatus,
     } = useAppContext()
-
 
     const [preview, setPreview] = useState<any>()
     const [name, setName] = useState('')
@@ -105,7 +106,6 @@ export default function CreateNFT() {
         } catch (error) {
             console.log(error)
         }
-
     }
 
     const handleFileSelect = (e: any) => {
@@ -128,7 +128,7 @@ export default function CreateNFT() {
     }, [])
 
     useEffect(() => {
-        (async () => {
+        ; (async () => {
             const requrl = baseurl + '/api/v1/market/v1/collections/create'
             if (collectionAdress) {
                 console.log(collectionAdress)
@@ -136,7 +136,7 @@ export default function CreateNFT() {
                     organiserId: orgnizerid,
                     organiserName: orgnizerName,
                     collectionName: collectionName,
-                    collectionPrice: 1,
+                    collectionPrice: collectionPrice,
                     collectionContractId: collectionAdress,
                     nftCollection: true,
                     collectionSymbol: collectionSymbol,
@@ -146,7 +146,6 @@ export default function CreateNFT() {
             }
             console.log(orgnizerid)
         })()
-
     }, [collectionAdress])
 
     useEffect(() => {
@@ -160,36 +159,57 @@ export default function CreateNFT() {
         return () => URL.revokeObjectURL(objectUrl)
     }, [selectedFile])
 
-
     useEffect(() => {
         if (collectionID) {
             createNFt()
         }
-
     }, [collectionID])
-
 
     return (
         <>
-            <div className="w-full flex-col flex justify-center lg:w-[50%] min-h-[90vh] text-opacity-80">
+            <div className="flex min-h-[90vh] w-full flex-col justify-center text-opacity-80 lg:w-[50%]">
                 <div className="py-10">
                     <h1 className="text-4xl">Add NFTs to Collection </h1>
                     <div className="my-8">
                         <form className="flex w-full flex-col  " onSubmit={handleSubmit}>
                             <div>
                                 <label htmlFor="name">Name</label>
-                                <p className="text-[10px] text-gray-300">name will be on each ticket  </p>
-                                <Input id="name" name="name" type="text" value={name} setValue={setName} placeholder={"Prime pass"} />
+                                <p className="text-[10px] text-gray-300">
+                                    name will be on each ticket{' '}
+                                </p>
+                                <Input
+                                    id="name"
+                                    name="name"
+                                    type="text"
+                                    value={name}
+                                    setValue={setName}
+                                    placeholder={'Prime pass'}
+                                />
                             </div>
 
                             <div className="my-8">
-                                <label htmlFor="collection name" className="">Number of tickets</label>
-                                <p className="text-[10px] text-gray-300">volume of tickets in number  </p>
-                                <Input id="collection name" name="collection name" type="number" value={noOFTokens} setValue={setNoOfTokens} placeholder={""} />
+                                <label htmlFor="collection name" className="">
+                                    Number of tickets
+                                </label>
+                                <p className="text-[10px] text-gray-300">
+                                    volume of tickets in number{' '}
+                                </p>
+                                <Input
+                                    id="collection name"
+                                    name="collection name"
+                                    type="number"
+                                    value={noOFTokens}
+                                    setValue={setNoOfTokens}
+                                    placeholder={''}
+                                />
                             </div>
-                            <div className=''>
-                                <label htmlFor="description" className="">Description</label>
-                                <p className="text-[10px] text-gray-300">The description will be included on the item's detail page </p>
+                            <div className="">
+                                <label htmlFor="description" className="">
+                                    Description
+                                </label>
+                                <p className="text-[10px] text-gray-300">
+                                    The description will be included on the item's detail page{' '}
+                                </p>
                                 <textarea
                                     value={description}
                                     onChange={(e) => {
@@ -201,19 +221,16 @@ export default function CreateNFT() {
                                     placeholder="Add  description"
                                     className="my-2 min-h-[300px] w-full border border-gray-500 bg-transparent px-3  py-2 focus:outline-none"
                                 />
-
                             </div>
 
                             <div className="my-8">
                                 <div>
-                                    <label className="mb-2 inline-block">
-                                        Image
-                                    </label>
+                                    <label className="mb-2 inline-block">Image</label>
                                     <p>File types supported: JPG, PNG, GIF, SVG</p>
                                 </div>
                                 <div className="my-2 flex w-full items-center justify-center ">
-                                    <label className="after:hidden hover:border-purple-700-300 flex w-full flex-col border-2  border-gray-500 hover:bg-gray-700">
-                                        <div className="flex cursor-pointer items-center justify-center min-h-[400px]">
+                                    <label className="hover:border-purple-700-300 flex w-full flex-col border-2 border-gray-500  after:hidden hover:bg-gray-700">
+                                        <div className="flex min-h-[400px] cursor-pointer items-center justify-center">
                                             {selectedFile ? (
                                                 <img className="object-cover" src={preview} alt="" />
                                             ) : (
@@ -245,20 +262,24 @@ export default function CreateNFT() {
                                 </div>
                             </div>
                             <div>
-                                {
-                                    loading ? <button className='rounded-3xl bg-purple-700 px-5 py-2 opacity-50 cursor-not-allowed' disabled>
+                                {loading ? (
+                                    <button
+                                        className="cursor-not-allowed rounded-3xl bg-purple-700 px-5 py-2 opacity-50"
+                                        disabled
+                                    >
                                         submit
-                                    </button> :
-                                        <input
-                                            type="submit"
-                                            className="rounded-3xl bg-purple-700 px-5 py-2 cursor-pointer"
-                                        />
-                                }
+                                    </button>
+                                ) : (
+                                    <input
+                                        type="submit"
+                                        className="cursor-pointer rounded-3xl bg-purple-700 px-5 py-2"
+                                    />
+                                )}
                             </div>
                         </form>
                     </div>
                 </div>
-            </div >
+            </div>
             <Modal />
         </>
     )

@@ -15,21 +15,18 @@ const Collections = ({ collections }: Props) => {
         <>
             {
                 isConnected ? (
-                    <Link href="/CollectionDetails" >
-                        <a href="">
-                            <div className="py-9 ">
-                                <h2 className="text-4xl">All Collections</h2>
-                                <div className="py-8 w-full  flex flex-wrap  ">
-                                    {
-                                        collections.map((col: any) => {
-                                            return <CollectionCard collectionId={col.collectionId} collectionImage={col.collectionImage} collectionName={col.collectionName} collectionPrice={col.collectionPrice} organiserName={col.organiserName} key={col.collectionId} />
-                                        })
-                                    }
-                                </div>
+                    <div className="py-9 ">
+                        <h2 className="text-4xl">All Collections</h2>
+                        <div className="py-8 w-full  flex flex-wrap  ">
+                            {
+                                collections.map((col: any) => {
+                                    return <CollectionCard collectionId={col.collectionId} collectionImage={col.collectionImage} collectionName={col.collectionName} collectionPrice={col.collectionPrice} organiserName={col.organiserName} key={col.collectionId} />
+                                })
+                            }
+                        </div>
 
-                            </div>
-                        </a>
-                    </Link>
+                    </div>
+
                 ) : null
             }
         </>
