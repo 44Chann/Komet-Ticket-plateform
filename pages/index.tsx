@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { useAppContext } from "./_context"
 import Collections from "./Collections"
+import Link from "next/link"
 
 export default function Home() {
   const [collections, setCollections] = useState<Array<Object>>()
@@ -24,12 +25,18 @@ export default function Home() {
         <div className="flex  py-24 items-center justify-center h-full">
           {
             collections?.length ?
-              <div className="h-ful">
+              <div className="h-full">
                 <Collections collections={collections} />
               </div>
-              : <h1 className="text-3xl text-white">hi you dont have'nt created any events yet create a Event</h1>
+              : <div className="flex flex-col items-center">
+                  <h1 className="text-3xl text-white mb-4">Hi 👋️ you dont have'nt created any events yet create a Event</h1>
+                  
+                  <Link href="/CreateCollection" >
+                    <a className="w-64 border-purple-800 border px-4 py-2 rounded-2xl text-center" href="">Create Event</a>
+                  </Link>
+                </div>
           }
-        </div> : null
+        </div> : <h1>Please Connect your wallet to access KOMET</h1>
       }
     </>
   )

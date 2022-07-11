@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useEffect } from "react";
-import { CollectionCard } from "./Componets";
+import { CollectionCard } from "./Components";
 import { useAppContext } from "./_context";
 interface Props {
     collections: Array<Object>

@@ -4,8 +4,9 @@ import { useAppContext } from './_context'
 import axios from 'axios'
 import { ethers } from 'ethers'
 import contractABI from '../contracts/abi.json'
-import Modal from './Componets/LoadingModal'
-import Input from './Componets/Forms/Input'
+import Modal from './Components/LoadingModal'
+import Input from './Components/Forms/Input'
+import { create } from 'ipfs-http-client'
 const contractAddress = '0x1b00CDFc161D9041ff6319450755b94DCBDB9E8d'
 
 declare var window: any
@@ -21,6 +22,9 @@ export default function CreateNFT() {
         collectionName,
         collectionPrice,
         collectionSymbol,
+        eventDate,
+        eventPlace,
+        saleEndDate,
         orgnizerName,
         collectionID,
         setCollectionID,
@@ -32,12 +36,15 @@ export default function CreateNFT() {
         setCreateStatus,
     } = useAppContext()
 
+    // const client = create({url: "https://ipfs.infura.io:5001/api/v0"});
+
     const [preview, setPreview] = useState<any>()
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const requrl = baseurl + 'api/v1/market/v1/token/upload_symbol'
     const [selectedFile, setSelectedFile] = useState<any>(null)
     const [loading, setloading] = useState(false)
+    
     const CreateCollection = async () => {
         try {
             const { ethereum } = window
@@ -52,7 +59,7 @@ export default function CreateNFT() {
                 let newCollectionTxn = await newCollectionContract.deployNftCollection(
                     collectionName,
                     collectionSymbol,
-                    'BaseURI',
+                    requrl,
                     ethers.utils.parseEther(`${collectionPrice}`)
                 )
                 newCollectionTxn.hash
@@ -108,10 +115,18 @@ export default function CreateNFT() {
         }
     }
 
-    const handleFileSelect = (e: any) => {
+    const handleFileSelect = async(e: any) => {
         setSelectedFile(e.target.files[0])
+
+        // const addFile = await client.add(e.target.files[0], {
+        //     progress: (prog) => console.log(`Received: ${prog}`)
+        // });
+
+        // const url = `https://ipfs.infura.io/ipfs/${addFile.path}`;
+
         console.log(collectionID)
         console.log(selectedFile)
+        // console.log("Url:", url);
     }
 
     const handleSubmit = async (e: any) => {
@@ -140,6 +155,9 @@ export default function CreateNFT() {
                     collectionContractId: collectionAdress,
                     nftCollection: true,
                     collectionSymbol: collectionSymbol,
+                    eventDate: eventDate,
+                    eventPlace: eventPlace,
+                    saleEndDate: saleEndDate
                 })
                 console.log(res.data.collectionId)
                 setCollectionID(res.data.collectionId)

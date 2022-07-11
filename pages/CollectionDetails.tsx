@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Btn, CollectionCard, DetailsBadge } from "./Componets";
+import { Btn, CollectionCard, DetailsBadge } from "./Components";
 import { useAppContext } from "./_context";
 import axios from "axios";
 import { useRouter } from "next/router";

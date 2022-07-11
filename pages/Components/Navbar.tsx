@@ -124,7 +124,7 @@ const Navbar = () => {
                     {isConnected ? <Link href="/CreateCollection" >
                         <a className="mx-5 border-purple-800 border px-4 py-2 rounded-2xl" href="">Create Event</a>
                     </Link> : null}
-                    {isConnected ? <Btn text={shortAccount ? shortAccount : ""} onclick={() => { }} /> : <Btn text="connect wallet" onclick={login} />}
+                    {isConnected ? <Btn text={shortAccount ? shortAccount : ""} onclick={() => { }} /> : <Btn text="Connect wallet" onclick={login} />}
                 </div>
             </nav>
         </>

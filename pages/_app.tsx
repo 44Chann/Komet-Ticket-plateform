@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import { Navbar } from './Componets'
+import { Navbar } from './Components'
 import { useState } from 'react'
 import { AppContext } from './_context'
 import Router from 'next/router'
@@ -17,6 +17,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [collectionSymbol, setCollectionSymbol] = useState("")
   const [orgnizerName, setOrgnizerName] = useState("")
   const [noOFTokens, setNoOfTokens] = useState()
+  const [eventDate, setEventDate] = useState(new Date())
+  const [eventPlace, setEventPlace] = useState("")
+  const [saleEndDate, setSaleEndDate] = useState()
   const [collectionID, setCollectionID] = useState(null)
   const [step, setStep] = useState(1)
   const [showModal, setShowModal] = useState(false);
@@ -45,6 +48,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     collectionSymbol, setCollectionSymbol,
     orgnizerName, setOrgnizerName,
     noOFTokens, setNoOfTokens,
+    eventDate, setEventDate,
+    eventPlace, setEventPlace,
+    saleEndDate, setSaleEndDate,
     collectionID, setCollectionID,
     step, setStep,
     showModal, setShowModal,
