@@ -12,7 +12,7 @@ declare var window: any
 export default function CreateNFT() {
     const {
         isConnected,
-        noOFTokens,
+        noOfTokens,
         setNoOfTokens,
         baseurl,
         orgnizerid,
@@ -89,7 +89,7 @@ export default function CreateNFT() {
                 const myres = await axios.post(
                     baseurl + 'api/v1/market/v1/token/create',
                     {
-                        numberOfTokens: noOFTokens,
+                        numberOfTokens: noOfTokens,
                         collectionId: collectionID,
                         attributes: {
                             name: name,
@@ -128,7 +128,7 @@ export default function CreateNFT() {
     }, [])
 
     useEffect(() => {
-        ; (async () => {
+        (async () => {
             const requrl = baseurl + '/api/v1/market/v1/collections/create'
             if (collectionAdress) {
                 console.log(collectionAdress)
@@ -198,7 +198,7 @@ export default function CreateNFT() {
                                     id="collection name"
                                     name="collection name"
                                     type="number"
-                                    value={noOFTokens}
+                                    value={noOfTokens}
                                     setValue={setNoOfTokens}
                                     placeholder={''}
                                 />

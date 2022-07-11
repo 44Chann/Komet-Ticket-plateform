@@ -27,7 +27,7 @@ export default function Home() {
               <div className="h-ful">
                 <Collections collections={collections} />
               </div>
-              : <h1 className="text-3xl text-white">hi you dont have'nt created any events  yet create a Event</h1>
+              : <h1 className="text-3xl text-white">hi you dont have'nt created any events yet create a Event</h1>
           }
         </div> : null
       }
