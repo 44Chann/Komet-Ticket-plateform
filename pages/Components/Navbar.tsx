@@ -64,11 +64,11 @@ const Navbar = () => {
         try {
             const { ethereum } = window;
             if (ethereum) {
-                if (chainId !== '0x13881') {
-                    toast.error('Connect to Polygon Mumbai Testnet')
+                if (chainId !== '0x89') {
+                    toast.error('Connect to Polygon Mainnet')
                     await ethereum.request({
                         method: "wallet_switchEthereumChain",
-                        params: [{ chainId: "0x13881" }],
+                        params: [{ chainId: "0x89" }],
                     });
                 }
             } else {
