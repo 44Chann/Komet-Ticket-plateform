@@ -30,7 +30,7 @@ export default function Modal() {
                                 {/*header*/}
                                 <div className="flex items-start justify-between p-5 rounded-t">
                                     <h3 className="text-3xl font-semibold text">
-                                        sit back creating collection
+                                        Sit Back Creating Collection
                                     </h3>
                                 </div>
                                 {/*body*/}
@@ -54,7 +54,7 @@ export default function Modal() {
                                         <div className="h-full flex-col  items-center my-10 py-20">
                                             <p>{text}</p>
                                             {step >= 3 ? <div>
-                                                <p>collection Details  </p>
+                                                <p>Collection Details  </p>
                                                 <p> Contract Adress : {collectionAdress} </p>
                                                 <p>Collection ID : {collectionID}</p>
                                             </div> : null}

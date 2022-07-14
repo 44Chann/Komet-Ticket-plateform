@@ -36,7 +36,7 @@ export default function CreateCollection() {
                                 <p className="text-[10px] text-gray-300">The Collection Symbol is for abbrivation for collection  </p>
                                 <Input id="collection symbol" name="collection symbol" type="text" value={collectionSymbol} setValue={setCollectionSymbol} placeholder={"JSP"} />
                             </div>
-                            <div className="my-8 " >
+                            {/* <div className="my-8 " >
                                 <label htmlFor="event date">Event Date</label>
                                 <p className="text-[10px] text-gray-300">The Collection Symbol is for abbrivation for collection  </p>
                                 <Input id="event date" name="event date" type="date" value={eventDate} setValue={setEventDate} placeholder={"JSP"} />
@@ -50,7 +50,7 @@ export default function CreateCollection() {
                                 <label htmlFor="sale end">Ticket Sale ends at</label>
                                 <p className="text-[10px] text-gray-300">The Collection Symbol is for abbrivation for collection  </p>
                                 <Input id="sale end" name="sale end" type="date" value={saleEndDate} setValue={setSaleEndDate} placeholder={"JSP"} />
-                            </div>
+                            </div> */}
                             <div className="my-8 ">
                                 <label htmlFor="price">Price</label>
                                 <p className="text-[10px] text-gray-300">The Price is in matic per ticket </p>

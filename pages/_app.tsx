@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [noOFTokens, setNoOfTokens] = useState()
   const [eventDate, setEventDate] = useState(new Date())
   const [eventPlace, setEventPlace] = useState("")
-  const [saleEndDate, setSaleEndDate] = useState()
+  const [saleEndDate, setSaleEndDate] = useState(new Date())
   const [collectionID, setCollectionID] = useState(null)
   const [step, setStep] = useState(1)
   const [showModal, setShowModal] = useState(false);
